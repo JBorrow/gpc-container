@@ -1,0 +1,14 @@
+services:
+  globus:
+    build: .
+    volumes:
+      - type: bind
+        source: ./config
+        target: /home/globus/.globusonline
+      - type: bind
+        source: ./data
+        target: /data
+# Uncomment this line for first 'docker compose run globus' to activate
+# the non-GUI setup wizard.
+#    entrypoint: ["/usr/bin/tini", "--", "/opt/globus-connect-personal/globusconnectpersonal", "-setup"]
+      
